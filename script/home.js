@@ -32,7 +32,7 @@ submitBtn.addEventListener('click', function (e) {
     ageCheck(inputAge),
     weightCheck(inputWeight),
     lengthCheck(inputLength),
-    idCheck(inputID)
+    IDCheck(inputID)
   );
 
   // Add new pet when all data is validated

@@ -8,7 +8,7 @@ const inputVaccinated = document.querySelector('#input-vaccinated');
 const inputDewormed = document.querySelector('#input-dewormed');
 const inputSterilized = document.querySelector('#input-sterilized');
 const findBtn = document.querySelector('#find-btn');
-const allBreeds = getFromStorage(breedsLocalKey).map(
+const allBreeds = breedArr.map(
   (breed) => breed.breedName
 );
 const allUniqueBreeds = [...new Set(allBreeds)];

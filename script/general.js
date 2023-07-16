@@ -230,5 +230,5 @@ function renderBreeds(breeds, type) {
 // Render breed when choose pet type
 inputType.addEventListener('change', function () {
   const type = this.value;
-  renderBreeds(getFromStorage(breedsLocalKey), type);
+  renderBreeds(breedArr, type);
 });

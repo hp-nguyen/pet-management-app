@@ -1,14 +1,5 @@
 'use strict';
 // DECALRE VARIABLES
-const defaultBreeds = [
-  { breedName: 'American Shorthair', type: 'Cat' },
-  { breedName: 'British Shorthair', type: 'Cat' },
-  { breedName: 'Mèo Mướp VN', type: 'Cat' },
-  { breedName: 'Chó mực', type: 'Dog' },
-  { breedName: 'Corgi', type: 'Dog' },
-  { breedName: 'Husky', type: 'Dog' },
-];
-const breedArr = JSON.parse(localStorage.getItem('breedArr')) || defaultBreeds; // Breed array
 const breedInput = document.querySelector('#input-breed'); // Breed Name input
 const typeInput = document.querySelector('#input-type'); // Breed Type input
 const submitBtn = document.querySelector('#submit-btn'); // Submit Btn

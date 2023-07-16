@@ -23,7 +23,7 @@ function editPet(e) {
     } else field.value = curPet[curPetKeys[i]];
   });
   // Render breeds
-  renderBreeds(getFromStorage(breedsLocalKey), inputType.value);
+  renderBreeds(breedArr, inputType.value);
   inputBreed.value = curPet.breed;
   // Render checkboxes
   checkboxes.forEach((checkbox, i) => {
