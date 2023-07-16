@@ -1,30 +1,36 @@
 'use strict';
 // DECALRE VARIABLES
-const breedArr = JSON.parse(localStorage.getItem('breedArr') || '[]'); // Breed array
+const defaultBreeds = [
+  { breedName: 'American Shorthair', type: 'Cat' },
+  { breedName: 'British Shorthair', type: 'Cat' },
+  { breedName: 'Mèo Mướp VN', type: 'Cat' },
+  { breedName: 'Chó mực', type: 'Dog' },
+  { breedName: 'Corgi', type: 'Dog' },
+  { breedName: 'Husky', type: 'Dog' },
+];
+const breedArr = JSON.parse(localStorage.getItem('breedArr')) || defaultBreeds; // Breed array
 const breedInput = document.querySelector('#input-breed'); // Breed Name input
 const typeInput = document.querySelector('#input-type'); // Breed Type input
 const submitBtn = document.querySelector('#submit-btn'); // Submit Btn
 const tbodyEl = document.querySelector('#tbody'); // tbody element of breed table
-
 // RENDER BREED TABLE FUNC
 function renderBreedTable(breeds) {
   tbodyEl.innerHTML = '';
   if (breeds.length < 1) {
     const newRow = document.createElement('tr');
-    newRow.innerHTML =`<td colspan="4">There aren't any breeds!</td>`
-    tbodyEl.appendChild(newRow)
-    return
+    newRow.innerHTML = `<td colspan="4">There aren't any breeds!</td>`;
+    tbodyEl.appendChild(newRow);
+    return;
   }
   breeds.forEach((breed, i) => {
     const newRow = document.createElement('tr');
-    newRow.setAttribute('data-index', `${i}`)
+    newRow.setAttribute('data-index', `${i}`);
     newRow.innerHTML = `<td>${i + 1}</td>
     <td>${breed.breedName}</td>
     <td>${breed.type}</td>
     <td><button onclick="deleteBreed(event)" type="button" class="btn btn-danger">Delete</button></td>`;
     tbodyEl.append(newRow);
   });
-  
 }
 // Render Breed table when first load
 renderBreedTable(breedArr);
@@ -54,11 +60,11 @@ submitBtn.addEventListener('click', function (e) {
     breedArr.push(breedData);
     renderBreedTable(breedArr);
     function clearInput() {
-      breedInput.value = ''
-      typeInput.selectedIndex = 0
+      breedInput.value = '';
+      typeInput.selectedIndex = 0;
     }
     saveToStorage(breedsLocalKey, breedArr);
-    clearInput()
+    clearInput();
   }
 });
 
@@ -72,4 +78,3 @@ function deleteBreed(e) {
     saveToStorage(breedsLocalKey, breedArr); // Update breedArr to local storage
   }
 }
-
